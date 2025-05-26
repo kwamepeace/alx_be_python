@@ -1,3 +1,3 @@
-hour = 2
-seconds = hour * 60 * 60
-print (hour, "hour(s)", "is", seconds ,'seconds' )
+hours = 2
+seconds = hours * 60 * 60
+print (hours, "hour(s)", "is", seconds ,'seconds' )
