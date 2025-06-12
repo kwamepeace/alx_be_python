@@ -1,8 +1,8 @@
-def perform_operation (num1, num2, operator):
+def perform_operation (num1, num2, operation):
     """
     A simple match catch calculator
     """
-    match operator:
+    match operation:
         case "add":
             return num1 + num2
         case "subtract":
