@@ -1,35 +1,57 @@
-class  BankAccount:
-    def __init__(self, amount, account_balance = 0.0 ):
-        self.account_balance = float(account_balance)
-        self.amount = float(amount)
-        
-        
-        
+class BankAccount:
+    def __init__(self, initial_balance=0.0): # Changed parameter name for clarity
+        if initial_balance < 0:
+            raise ValueError("Initial balance cannot be negative.")
+        self.account_balance = float(initial_balance)
+        # Removed self.amount as it's redundant for the account's state
 
     def deposit(self, amount):
         if amount <= 0:
             raise ValueError("Deposit amount must be a positive number.")
         else:
-            balance = self.account_balance + amount
-            self.account_balance = balance
-            print(f"Successfully deposited GHS {amount:.2f}.") # amount:. 2f formats the amount to 2 decimal places
+            self.account_balance += amount # Use += for conciseness
+            print(f"Successfully deposited GHS {amount:.2f}.")
         return self.account_balance
-            
 
     def withdraw(self, amount):
         if amount <= 0:
             raise ValueError("Withdrawal amount cannot be zero, or less.")
-        else :
-            if amount <= self.account_balance:
-                balance = self.account_balance - amount
-                self.account_balance = balance
-            else:
-                raise ValueError(f"Insufficient funds for withdrawal. Current balance: {self.account_balance}")
+        elif amount > self.account_balance: # Using elif for better logic flow
+            raise ValueError(f"Insufficient funds for withdrawal. Current balance: GHS {self.account_balance:.2f}")
+        else:
+            self.account_balance -= amount # Use -= for conciseness
+            print(f"Successfully withdrew GHS {amount:.2f}.")
         return self.account_balance
-    
 
     def display_balance(self):
-        return f"Hello, your account balance is: GHS {self.account_balance + self.amount}"
+        # This is the corrected line to include "Current Balance:"
+        return f"Current Balance: GHS {self.account_balance:.2f}"
+
+    # It's also good practice to have a correct __str__ for general object representation
+    def __str__(self):
+        return f"Account details: Current Balance: GHS {self.account_balance:.2f}"
+
+# Example Usage with corrected instantiation
+try:
+    print("Welcome to the Bank Account Management System!")
+
+    initial_bal = float(input("Enter your initial account balance: "))
+    my_account = BankAccount(initial_bal) # Pass only the initial balance
+
+    print(my_account.display_balance()) # Call the display_balance method
+
+    deposit_amt = float(input("Enter amount to deposit: "))
+    my_account.deposit(deposit_amt)
+    print(my_account.display_balance()) # Check balance after deposit
+
+    withdraw_amt = float(input("Enter amount to withdraw: "))
+    my_account.withdraw(withdraw_amt)
+    print(my_account.display_balance()) # Check balance after withdrawal
+
+except ValueError as e:
+    print(f"Error: {e}")
+except Exception as e:
+    print(f"An unexpected error occurred: {e}")
         
 
             
