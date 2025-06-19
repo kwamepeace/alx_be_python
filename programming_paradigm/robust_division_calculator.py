@@ -1,6 +1,5 @@
-def safe_divide(numerator, denominator):
-    numerator = float(input("Enter the numerator"))
-    denominator = float(input("Enter the denominator"))
+def safe_divide(float(numerator), float(denominator)):
+
     try:
         if denominator == 0:
             raise ZeroDivisionError("Denominator cannot be zero.")
