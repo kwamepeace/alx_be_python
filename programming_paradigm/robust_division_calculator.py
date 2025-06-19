@@ -10,4 +10,8 @@ def safe_divide(numerator, denominator):
         return "Error: Division by zero is not allowed."
     except ValueError:
         return "Both numerator and denominator must be numbers."
+
+
+numerator = float(input("Enter the numerator"))
+denominator = float(input("Enter the denominator"))
     
