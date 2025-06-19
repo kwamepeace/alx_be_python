@@ -1,4 +1,4 @@
-def sate_division(numerator, denominator):
+def safe_division(numerator, denominator):
     try:
         if denominator == 0:
             raise ZeroDivisionError("Denominator cannot be zero.")
