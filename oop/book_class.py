@@ -13,7 +13,7 @@ class Book:
     
     # Method for official representation of the book object
     def __repr__(self):
-        return f"Book'{self.title}', '{self.author}', ({self.year})"
+        return f"Book'({self.title}', '{self.author}', {self.year})"
 
     #Method to delete the book object
     def __del__(self):
