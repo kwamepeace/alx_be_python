@@ -42,15 +42,15 @@ class Library:
 
 
     def list_books(self):
+        # List all books in the library
         for book in self.books:
-            if isinstance(book, Book):
-                print(f"Book: {book.title} by {book.author}")
+            # Check the type of book and print accordingly
             if isinstance(book, PrintBook):
                 print(f"PrintBook: {book.title} by {book.author}, Page Count: {book.page_count}")
             elif isinstance(book, EBook):
                 print(f"EBook: {book.title} by {book.author}, File Size: {book.file_size}KB")
             else:
-                print("Unknown book type")
+                print(f"Book: {book.title} by {book.author}")
 
 
 
