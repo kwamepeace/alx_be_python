@@ -1,0 +1,1 @@
+"""Creating a DB connection pool and a table for book store."""
